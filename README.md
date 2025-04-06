@@ -37,7 +37,9 @@ mental_health_api/
 ├── db/
 │   └── eurostat.db         # Base de datos SQLite local
 ├── dashboards/
-│   └── powerbi.pbix        # Dashboard interactivo en Power BI
+│   └── powerbi.pbix  
+├── notebooks/
+│   └── exploration.ipynb        # Dashboard interactivo en Power BI
 ├── src/
 │   ├── etl.py              # Descarga de datos desde la API de Eurostat
 │   ├── json_to_csv.py      # Transformación de JSON a CSV estructurado
