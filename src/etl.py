@@ -1,7 +1,7 @@
 import requests
 import json
 
-URL = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/hlth_silc_13?geo=ES&sex=T&age=Y25-34&format=JSON"
+URL = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/hlth_silc_13?geo=ES&format=JSON"
 
 def download_data():
     print("Descargando datos desde Eurostat...")
