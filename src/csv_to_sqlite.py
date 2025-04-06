@@ -5,14 +5,14 @@ import os
 CSV_PATH = "data/processed/eurostat_clean.csv"
 DB_PATH = "db/eurostat.db"
 
-# Crear carpeta db si no existe
+# Crear carpeta si no existe
 os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
 
-# Conexión a SQLite
+# Conectar a SQLite
 conn = sqlite3.connect(DB_PATH)
 cursor = conn.cursor()
 
-# Crear tabla con TODAS las columnas
+# Crear tabla adaptada a tus columnas
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS eurostat (
         freq TEXT,
@@ -27,10 +27,10 @@ cursor.execute("""
     )
 """)
 
-# Limpiar la tabla antes de cargar
+# Limpiar tabla si ya existía
 cursor.execute("DELETE FROM eurostat")
 
-# Leer CSV e insertar en la tabla
+# Leer e insertar datos
 with open(CSV_PATH, newline='', encoding='utf-8') as csvfile:
     reader = csv.DictReader(csvfile)
     rows = [

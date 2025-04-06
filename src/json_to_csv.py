@@ -1,54 +1,49 @@
 import json
 import csv
 import os
+from itertools import product
 
 INPUT_PATH = "data/eurostat_raw.json"
 OUTPUT_PATH = "data/processed/eurostat_clean.csv"
 
-# Crear carpeta si no existe
 os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
 
-# Cargar el JSON
 with open(INPUT_PATH, encoding="utf-8") as f:
     data = json.load(f)
 
-# Extraer dimensiones y etiquetas
 dimensions = data["dimension"]
-category_labels = {}
-dim_order = []
+size = data["size"]
+dimension_names = data["id"]
 
-for dim_name, dim_data in dimensions.items():
-    if "category" in dim_data:
-        labels = dim_data["category"]["label"]
-        category_labels[dim_name] = labels
-        dim_order.append(dim_name)
+# Crear diccionarios de etiquetas
+labels = {
+    dim: dimensions[dim]["category"]["label"]
+    for dim in dimension_names
+}
 
-# Valores
-values = data["value"]
+# Crear lista ordenada de claves por dimensión
+keys = {
+    dim: list(labels[dim].keys())
+    for dim in dimension_names
+}
 
-# Guardar CSV
+# Crear combinaciones posibles de índices por dimensión (como un grid)
+combinations = list(product(*[range(len(keys[dim])) for dim in dimension_names]))
+
+# Abrir CSV
 with open(OUTPUT_PATH, mode="w", newline="", encoding="utf-8") as csvfile:
     writer = csv.writer(csvfile)
-    writer.writerow(dim_order + ["value"])
+    writer.writerow(dimension_names + ["value"])
 
-    for key, val in values.items():
-        indices = list(map(int, key.split(":")))
-        row = []
-        error_detected = False
-
-        for i, dim_name in enumerate(dim_order):
-            label_dict = category_labels[dim_name]
-            label = label_dict.get(str(indices[i]))
-
-            if label is None:
-                print(f"No se encontró etiqueta para índice {indices[i]} en '{dim_name}'")
-                error_detected = True
-                break
-
-            row.append(label)
-
-        if not error_detected:
-            row.append(val)
+    for idx, combo in enumerate(combinations):
+        value = data["value"].get(str(idx))
+        if value is not None:
+            row = []
+            for dim_index, dim in enumerate(dimension_names):
+                key = keys[dim][combo[dim_index]]
+                label = labels[dim][key]
+                row.append(label)
+            row.append(value)
             writer.writerow(row)
 
-print(f"CSV generado correctamente en {OUTPUT_PATH}")
+print(f"✅ CSV generado correctamente con {len(data['value'])} filas.")
