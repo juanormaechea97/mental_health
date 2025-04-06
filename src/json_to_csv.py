@@ -17,7 +17,7 @@ def json_to_csv():
         data = json.load(f)
 
     if "value" not in data or not data["value"]:
-        print("⚠️ El JSON no contiene valores (campo 'value' vacío o ausente).")
+        print("El JSON no contiene valores (campo 'value' vacío o ausente).")
         return
 
     dimensions = data.get("dimension", {})
@@ -60,10 +60,10 @@ def json_to_csv():
                     writer.writerow(row)
                     registros_escritos += 1
                 except IndexError:
-                    print(f"⚠️ Índice fuera de rango para combinación {combo}, saltado.")
+                    print(f"Índice fuera de rango para combinación {combo}, saltado.")
 
     if registros_escritos > 0:
-        print(f"✅ CSV generado correctamente con {registros_escritos} filas.")
+        print(f"CSV generado correctamente con {registros_escritos} filas.")
     else:
         print("No se escribió ninguna fila en el CSV.")
 
