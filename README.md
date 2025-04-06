@@ -29,6 +29,8 @@ Este proyecto analiza la relación entre factores laborales y problemas de salud
 ## 🧱 Estructura del proyecto
 
 mental_health_api/
+├── analysis/
+│   └── analysis.sql 
 ├── data/
 │   ├── raw/                # JSON original descargado desde Eurostat
 │   └── processed/          # CSV limpio y listo para cargar
