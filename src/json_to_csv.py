@@ -63,7 +63,7 @@ def json_to_csv():
                     print(f"Índice fuera de rango para combinación {combo}, saltado.")
 
     if registros_escritos > 0:
-        print(f"CSV generado correctamente con {registros_escritos} filas.")
+        print(f"- CSV generado correctamente con {registros_escritos} filas.")
     else:
         print("No se escribió ninguna fila en el CSV.")
 
