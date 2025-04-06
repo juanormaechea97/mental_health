@@ -28,7 +28,21 @@ Este proyecto analiza la relación entre factores laborales y problemas de salud
 
 ## 🧱 Estructura del proyecto
 
-mental_health_api/ ├── data/ │ ├── raw/ # JSON original descargado desde Eurostat │ └── processed/ # CSV limpio y listo para cargar ├── db/ │ └── eurostat.db # Base de datos SQLite local ├── dashboards/ │ └── powerbi.pbix # Dashboard Power BI interactivo ├── src/ │ ├── etl.py # Descarga de datos desde API │ ├── json_to_csv.py # Limpieza y conversión a CSV │ └── csv_to_sqlite.py # Carga del CSV a base de datos SQLite ├── requirements.txt └── README.md
+mental_health_api/
+├── data/
+│   ├── raw/                # JSON original descargado desde Eurostat
+│   └── processed/          # CSV limpio y listo para cargar
+├── db/
+│   └── eurostat.db         # Base de datos SQLite local
+├── dashboards/
+│   └── powerbi.pbix        # Dashboard interactivo en Power BI
+├── src/
+│   ├── etl.py              # Descarga de datos desde la API de Eurostat
+│   ├── json_to_csv.py      # Transformación de JSON a CSV estructurado
+│   └── csv_to_sqlite.py    # Carga de datos en base SQLite
+├── main.py                 # Script principal que ejecuta todo el pipeline ETL
+├── requirements.txt        # Dependencias del entorno virtual
+└── README.md               # Documentación general del proyecto
 
 
 ---
@@ -37,7 +51,7 @@ mental_health_api/ ├── data/ │ ├── raw/ # JSON original descargado
 
 1. Clonar el proyecto:
    ```bash
-   git clone https://github.com/tuusuario/mental_health_api.git
+   git clone https://github.com/tuusuario/mental_health.git
    cd mental_health
 
 2. Crear entorno virtual y activar:
@@ -47,10 +61,8 @@ mental_health_api/ ├── data/ │ ├── raw/ # JSON original descargado
 3. Instalar dependencias:
     pip3 install -r requirements.txt
 
-4. Ejecutar el flujo ETL:
-    python src/etl.py
-    python src/json_to_csv.py
-    python src/csv_to_sqlite.py
+4. python main.py
+
 
 5. Abrir eurostat.db con DB Browser o cargar en Power BI
 
