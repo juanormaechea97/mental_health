@@ -70,35 +70,65 @@ mental_health_api/
 
 5. Abrir eurostat.db con DB Browser o cargar en Power BI
 
-## 📊 Dashboard
 
-En esta sección se insertará una captura del dashboard final + breve explicación de las visualizaciones.
+# 📈 Análisis en Power BI
 
-Ejemplo de visualizaciones:
+# 📊 Página 1: Evolución económica de las barreras
 
-- Gráfico de barras por grupo de edad
+1. Título: Evolución del acceso limitado a atención médica por razones económicas
 
-- Segmentación por sexo
+2. Visualización: Gráfico de línea con el promedio de "Too expensive" a lo largo del tiempo.
 
-- Evolución por año
+3. Indicador adicional: Máximo histórico (%).
 
-- Tabla comparativa por causa (reason)
+# Conclusión:
 
-- Filtros interactivos en Power BI
+Se observa un descenso progresivo de esta barrera económica desde 2013.
 
-## 🧪 Análisis y resultados
+El pico fue del 7.1% en años anteriores.
 
-Se comentarán los principales hallazgos a partir de las consultas SQL y del dashboard en Power BI.
+Esto podría reflejar mejoras en accesibilidad o cambios en la percepción de coste.
 
-Ejemplos:
+# 🌎 Página 2: Análisis geográfico y por género
 
-- Mayor prevalencia de problemas de salud laboral en el grupo de 45–64 años
+1. Título: ¿Dónde y para quién es más difícil acceder a atención médica?
 
-- Las mujeres reportan más limitaciones de salud relacionadas con el trabajo que los hombres
+2. Mapa: Distribución geográfica de barreras económicas.
 
-- El estado laboral (desempleado vs ocupado) influye notablemente en los resultados
+3. Gráfico de barras: Comparativa de barreras por sexo y año.
 
-- Las razones más comunes son problemas físicos o estrés
+# Conclusión:
+
+Las diferencias por sexo existen, siendo las mujeres ligeramente más afectadas en años clave.
+
+Las barreras aparecen agrupadas en regiones concretas.
+
+Esto sugiere que el acceso desigual podría estar relacionado con el territorio y el género.
+
+# 👥 Página 3: Edad, motivo y sexo
+
+1. Título: Barreras médicas en la población española: edad, sexo y motivo
+
+2. Gráfico de dispersión: Relación entre motivo, edad y suma de casos.
+
+3. Gráfico de columnas agrupadas: Comparativa de motivos por sexo.
+
+# Conclusión:
+
+Los jóvenes tienden a declarar "esperar a ver si mejora" como barrera.
+
+Las barreras económicas afectan más a personas de entre 25 y 44 años.
+
+Los datos muestran una distribución bastante homogénea entre hombres y mujeres según motivos.
+
+## 🔍 Conclusiones generales
+
+Las barreras económicas siguen presentes, pero han disminuido con el tiempo.
+
+El género y la edad influyen en el tipo de barrera declarada.
+
+Existen diferencias regionales que deberían estudiarse más a fondo.
+
 
 ## 💡 Notas finales
 
