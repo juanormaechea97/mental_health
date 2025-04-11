@@ -55,7 +55,7 @@ mental_health_api/
 
 1. Clonar el proyecto:
    ```bash
-   git clone https://github.com/tuusuario/mental_health.git
+   git clone https://github.com/juanormaechea97/mental_health.git
    cd mental_health
 
 2. Crear entorno virtual y activar:
